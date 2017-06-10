@@ -35,7 +35,7 @@ void Cryptor::Caesar::Encrypt()
 			}
 		}
 
-		NewMessage()->SetMsg( tmpMsg );
+		NewMessage()->SetMsg( Reverse( tmpMsg ) );
 	}
 	else
 	{
@@ -72,10 +72,22 @@ void Cryptor::Caesar::Decrypt()
 			}
 		}
 
-		NewMessage()->SetMsg( tmpMsg );
+		NewMessage()->SetMsg( Reverse( tmpMsg ) );
 	}
 	else
 	{
 		Encrypt();
 	}
+}
+
+std::string Cryptor::Caesar::Reverse( const std::string& other )
+{
+	std::string reverse;
+	
+	for( int i = other.length() - 1; i >= 0; i-- )
+	{
+		reverse.push_back( other.at( i ) );
+	}
+	
+	return reverse;
 }
