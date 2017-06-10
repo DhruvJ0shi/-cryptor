@@ -21,6 +21,7 @@ namespace Cryptor
 		inline std::string GetSymbols() { return m_symbols; }
 		const inline void AddSymbols( const std::string& newSymbols ) { m_symbols.append( newSymbols ); }
 	private:
+		std::string Reverse( const std::string& other );
 		std::string m_symbols;
 	};
 }
